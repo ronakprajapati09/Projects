@@ -1,0 +1,88 @@
+DAY 1 APP.JS////
+console.log("hello")
+
+var user= require("./user")
+console.log(user)
+console.log(user.userName)
+console.log(user.userAge)
+user.printUserData(100)
+
+DAY 1 user.js
+console.log("user file loaded")
+var userName = 'ram'
+var userAge = 21
+
+const printUserData = (a)=>{
+
+    console.log("print userdata function called from user.js file....",a)
+    
+}
+
+//export
+
+module.exports = {
+    userName,userAge,printUserData
+}
+
+
+day 1 task with empolyee
+const express = require("express") //express....
+//express object..
+const app = express()
+
+//https://node5.onrender.com/user/user : domain + endpoints
+//http://localhost:3000/test
+app.get("/test", (req, res) => {
+
+    console.log("test api called...")
+
+    res.send("hello test api called...")
+
+})
+
+//http://localhost:3000/users
+app.get("/users", (req, res) => {
+
+    res.json({
+        message: "user api called...",
+        data: ["ram", "shyam", "seeta"]
+    })
+})
+//http://localhost:3000/employe
+app.get("/employe", (req, res) => {
+
+    res.json({
+        message: "employe api is called",
+        data: [{
+            name: "bhuro",
+            id: "200",
+            salary: "50000",
+            email: "bhuro@gmail.com"
+        },
+        {
+            name: "kalu",
+            id: "201",
+            salary: "5000",
+            email: "kalu@gmail.com"
+        },
+        {
+            name: "jp",
+            id: "204",
+            salary: "500",
+            email: "jp@gmail.com"
+        },
+        {
+            name: "dadhi",
+            id: "205",
+            salary: "50",
+            email: "dadhi@gmail.com"
+        }]  
+        
+    })
+})
+
+//server creation...
+const PORT = 3000
+app.listen(PORT, () => {
+    console.log("server started on port number ", PORT)
+})
